@@ -1,1 +1,1 @@
-"use strict";console.log(">> Ready :)");
+"use strict";const listCocktails=document.querySelector(".js_list"),input=document.querySelector(".js_input"),buttonSearch=document.querySelector(".js_buttonSearch"),buttonReset=document.querySelector(".js_buttonReset");let cocktails=[];function handleClickSearch(){fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+input.value).then(t=>t.json()).then(t=>{cocktails=t.cocktails})}buttonSearch.addEventListener("click",handleClickSearch);
