@@ -43,3 +43,26 @@ a continuación os explico un poco en que consiste.
 # Donde se puede ver 👀
 
 http://beta.adalab.es/modulo-2-evaluacion-final-NaiSaratxaga/
+
+# Este proyecto ha sido desarrollado con:
+
+javascript html5 sass
+
+Además, para su realización, se ha utilizado el Starter Kit de Aadalab, el cual incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local.
+
+Guía para arrancar el proyecto
+NOTA: Para trabajar con el Starter Kit necesitas tener instalado Node JS :
+
+Clonar este repositorio
+
+Abrir una terminal en la carpeta raíz del repositorio.
+
+Instalar las dependencias locales ejecutando en la terminal el comando:
+
+npm install
+Arrancar el proyecto con el comando:
+
+npm start
+
+Autora: Naiara Saratxaga 
+
