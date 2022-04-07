@@ -12,19 +12,23 @@
 
 <body>
   <main>
-    <h1>Buscador de Cócteles</h1>
-
+    <h1 class="title">Buscador de Cócteles</h1>
     <form>
-      <label class="" for=""></label>
-      <input class="" type="text" id="filter" placeholder="Escribe aquí el nombre del coctel" />
-      <button>Buscar</button>
-      <button>Reset</button>
+      <input type="text" class="input js_input" />
+      <button type="button" class="button js_buttonSearch">Buscar</button>
+      <button type="button" class="button js_buttonReset">Reset</button>
     </form>
-    <ul class="js-list-drinks">
-      <li>Cócteles Favoritos</li>
-    </ul>
+
+    <section>
+      <h2>Lista de bebidas favoritas</h2>
+    </section>
+    <section>
+
+      <ul class="js_list"></ul>
+    </section>
+    </div>
   </main>
-  <script src="./assets/js/main.js"></script>
+  <script type="text/javascript" src="./assets/js/main.js"></script>
 </body>
 
 </html>

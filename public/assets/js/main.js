@@ -1,19 +1,27 @@
 'use strict';
 
-//url https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+// Select from HTML
+const listCocktails = document.querySelector('.js_list');
+const input = document.querySelector('.js_input');
+const buttonSearch = document.querySelector('.js_buttonSearch');
+const buttonReset = document.querySelector('.js_buttonReset');
+const urlServer =
+  'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 
-// selecciono el elemento del HTML
-const listDrinks = document.querySelector('.js-list-drinks');
-const urlServer = www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+let cocktails = [];
 
+// Paint HTML
 
-// funciones
+function handleClickResearch() {
+  fetch(`//www.thecocktaildb.com/api/json/v1/1/search.php?s=${input.value}`)
+    .then((response) => response.json())
+    .then((data) => {
+      cocktails = data.cocktails;
+    });
+}
 
-// declarar los eventos
-
-// peticion al servidor fetch
-
-// LocalStorage
+// Buttons
+buttonSearch.addEventListener('click', handleClickResearch);
 
 // 1- start app -- Cuando carga la pagina
 //getLocalStorage();//
