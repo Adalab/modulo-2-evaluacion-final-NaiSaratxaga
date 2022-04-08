@@ -1,12 +1,12 @@
 # Hola 👋🏽, soy Naiara
 
 Y este es mi ejercicio de evaluación final de JavaScript.
-a continuación os explico un poco en que consiste.
+A continuación os explico un poco en que consiste.
 
 - El ejercicio consiste en desarrollar una aplicación web que contiene un listado de las bebidas y cóteles de todo el mundo, que nos permite des/marcar las bebidas como favoritas y guardarlas en local storage.
-- El ejercicio también tiene una parte de maquetación conHTML y Sass.
+- El ejercicio también tiene una parte de maquetación con HTML y Sass.
 
-1. En primer lugar hay que realizar un aestructura básica sobre el modelo que nos proporcionan.
+1. En primer lugar hay que realizar una estructura básica sobre el modelo que nos proporcionan.
 
    La aplicación de búsqueda de cócteles consta de dos partes:
    . Un campo de texto y un botón para buscar un cóctel por su título.
