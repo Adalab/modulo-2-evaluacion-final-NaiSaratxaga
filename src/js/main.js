@@ -5,14 +5,16 @@ const cocktailsList = document.querySelector('.js_listResults');
 const searchInput = document.querySelector('.js_input');
 const searchButton = document.querySelector('.js_buttonSearch');
 const resetButton = document.querySelector('.js_buttonReset');
+const cocktailsFavList = document.querySelector('.js_listFav');
 
 const imageFallback =
   'https://via.placeholder.com/150/ffffff/666666/?text=no-image';
 
 let cocktails = [];
+let favCocktails = [];
 
-// functions
-function getData() {
+// Functions
+function getCocktails() {
   const cocktailTitleToSearch = searchInput.value;
   fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailTitleToSearch}`
@@ -23,21 +25,38 @@ function getData() {
       renderCocktails(cocktails);
     });
 }
+// Favourites
+function cocktailSelected(cocktailElementListItem) {
+  const selectedCocktailId = cocktailElementListItem.id;
+
+  const isAlreadyInFavs = favCocktails.find(
+    (cocktail) => cocktail.idDrink === selectedCocktailId
+  );
+
+  if (isAlreadyInFavs) {
+    return;
+  }
+
+  const selectedCocktail = cocktails.find(
+    (cocktail) => cocktail.idDrink === selectedCocktailId
+  );
+  favCocktails.push(selectedCocktail);
+  renderFavouriteCocktails(favCocktails);
+}
 
 function renderCocktails(cocktails) {
   cocktailsList.innerHTML = '';
   if (!cocktails) {
     const cocktailTitleToSearch = searchInput.value;
     cocktailsList.innerHTML = `<li class="no-cocktails">There are no cocktails for the search: ${cocktailTitleToSearch}</li>`;
+    return;
   }
 
   for (const cocktail of cocktails) {
-    const imageSrc = cocktail.strDrinkThumb
-      ? cocktail.strDrinkThumb
-      : imageFallback;
+    const imageSrc = cocktail.strDrinkThumb || imageFallback;
 
     cocktailsList.innerHTML += `
-      <li class="cocktail" id=${cocktail.idDrink}>
+      <li class="cocktail" onClick="cocktailSelected(this)" id=${cocktail.idDrink}>
         <h2 class="drink-name">
           ${cocktail.strDrink}
         </h2>
@@ -46,24 +65,44 @@ function renderCocktails(cocktails) {
   }
 }
 
+function renderFavouriteCocktails(favouriteCocktails) {
+  cocktailsFavList.innerHTML = '';
+  if (!favouriteCocktails) {
+    cocktailsFavList.innerHTML = `<li class="no-favs">There are no fav cocktails </li>`;
+  }
+
+  for (const favouriteCocktail of favouriteCocktails) {
+    const imageSrc = favouriteCocktail.strDrinkThumb
+      ? favouriteCocktail.strDrinkThumb
+      : imageFallback;
+
+    cocktailsFavList.innerHTML += `
+      <li class="cocktail" id=${favouriteCocktail.idDrink}>
+        <h2 class="drink-name">
+          ${favouriteCocktail.strDrink}
+        </h2>
+        <img src=${imageSrc} class="img" alt="cocktail">
+      </li>`;
+  }
+}
 // Callback functions
 // Reevaluates if the search button is disabled or not
 // based on if there is text to search by
 function setSearchButtonState() {
-  searchInput.value
+  searchInput.value.length >= 3
     ? (searchButton.disabled = false)
     : (searchButton.disabled = true);
 }
 
-function onSearchButtonClick(event) {
+function searchCocktails(event) {
   event.preventDefault();
-  getData();
+  getCocktails();
 }
 
 function init() {
   // Subscriptions
   searchInput.addEventListener('keyup', setSearchButtonState);
-  searchButton.addEventListener('click', onSearchButtonClick);
+  searchButton.addEventListener('click', searchCocktails);
 
   // Sets the disable or enable state for the search button
   setSearchButtonState();
