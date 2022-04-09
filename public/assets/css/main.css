@@ -5,12 +5,11 @@
   list-style-type: none;
   text-decoration: none; }
 
-/* :root {
-  color: rgb(56, 52, 52);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-left: 50px;
-  margin-top: 50px;
-} */
+.main__cocktails-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px; }
+
 .input {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -46,21 +45,11 @@
   font-weight: 500;
   color: #747171; }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  margin: 30px;
-  width: 100%; }
-
 .no-cocktails {
   color: red; }
 
-.section__fav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-  width: 100%; }
+.fav-cocktail {
+  background-color: yellow; }
 
 .subtitle {
   font-family: 'Roboto', sans-serif;

@@ -26,23 +26,26 @@ function getCocktails() {
     });
 }
 // Favourites
+function isAlreadyInFavs(cocktailId) {
+  return favCocktails.find((cocktail) => cocktail.idDrink === cocktailId);
+}
+
 function cocktailSelected(cocktailElementListItem) {
   const selectedCocktailId = cocktailElementListItem.id;
 
-  const isAlreadyInFavs = favCocktails.find(
-    (cocktail) => cocktail.idDrink === selectedCocktailId
-  );
-
-  if (isAlreadyInFavs) {
+  if (isAlreadyInFavs(selectedCocktailId)) {
     return;
   }
 
+  cocktailElementListItem.classList.add('fav-cocktail');
   const selectedCocktail = cocktails.find(
     (cocktail) => cocktail.idDrink === selectedCocktailId
   );
   favCocktails.push(selectedCocktail);
+
   renderFavouriteCocktails(favCocktails);
 }
+
 function cleanCocktailsResults() {
   cocktailsList.innerHTML = '';
 }
@@ -57,15 +60,32 @@ function renderCocktails(cocktails) {
 
   for (const cocktail of cocktails) {
     const imageSrc = cocktail.strDrinkThumb || imageFallback;
+    const favClass = isAlreadyInFavs(cocktail.idDrink) ? 'fav-cocktail' : '';
 
     cocktailsList.innerHTML += `
-      <li class="cocktail" onClick="cocktailSelected(this)" id=${cocktail.idDrink}>
+      <li class="cocktail ${favClass}" onClick="cocktailSelected(this)" id=${cocktail.idDrink}>
         <h2 class="drink-name text">
           ${cocktail.strDrink}
         </h2>
         <img src=${imageSrc} class="img" alt="cocktail">
       </li>`;
   }
+}
+
+function unmarkAsFavoruite(cocktailId) {
+  const cocktailElement = document.getElementById(cocktailId);
+  cocktailElement.classList.remove('fav-cocktail');
+}
+
+function removeFromFav(cocktailFavElementToRemove) {
+  const cocktailIdToRemoveFromFav = cocktailFavElementToRemove.id;
+
+  favCocktails = favCocktails.filter(
+    (cocktail) => cocktail.idDrink !== cocktailIdToRemoveFromFav
+  );
+
+  renderFavouriteCocktails(favCocktails);
+  unmarkAsFavoruite(cocktailIdToRemoveFromFav);
 }
 
 function renderFavouriteCocktails(favouriteCocktails) {
@@ -80,7 +100,7 @@ function renderFavouriteCocktails(favouriteCocktails) {
       : imageFallback;
 
     cocktailsFavList.innerHTML += `
-      <li class="cocktail" id=${favouriteCocktail.idDrink}>
+      <li class="cocktail" onClick="removeFromFav(this)" id=${favouriteCocktail.idDrink}>
         <h2 class="drink-name text">
           ${favouriteCocktail.strDrink}
         </h2>
