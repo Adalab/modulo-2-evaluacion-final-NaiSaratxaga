@@ -43,9 +43,12 @@ function cocktailSelected(cocktailElementListItem) {
   favCocktails.push(selectedCocktail);
   renderFavouriteCocktails(favCocktails);
 }
+function cleanCocktailsResults() {
+  cocktailsList.innerHTML = '';
+}
 
 function renderCocktails(cocktails) {
-  cocktailsList.innerHTML = '';
+  cleanCocktailsResults();
   if (!cocktails) {
     const cocktailTitleToSearch = searchInput.value;
     cocktailsList.innerHTML = `<li class="no-cocktails">There are no cocktails for the search: ${cocktailTitleToSearch}</li>`;
@@ -57,7 +60,7 @@ function renderCocktails(cocktails) {
 
     cocktailsList.innerHTML += `
       <li class="cocktail" onClick="cocktailSelected(this)" id=${cocktail.idDrink}>
-        <h2 class="drink-name">
+        <h2 class="drink-name text">
           ${cocktail.strDrink}
         </h2>
         <img src=${imageSrc} class="img" alt="cocktail">
@@ -78,13 +81,21 @@ function renderFavouriteCocktails(favouriteCocktails) {
 
     cocktailsFavList.innerHTML += `
       <li class="cocktail" id=${favouriteCocktail.idDrink}>
-        <h2 class="drink-name">
+        <h2 class="drink-name text">
           ${favouriteCocktail.strDrink}
         </h2>
         <img src=${imageSrc} class="img" alt="cocktail">
       </li>`;
   }
 }
+
+function handleClickReset() {
+  cocktails: [];
+  cleanCocktailsResults('');
+  searchInput.value = '';
+  setSearchButtonState();
+}
+
 // Callback functions
 // Reevaluates if the search button is disabled or not
 // based on if there is text to search by
@@ -103,7 +114,7 @@ function init() {
   // Subscriptions
   searchInput.addEventListener('keyup', setSearchButtonState);
   searchButton.addEventListener('click', searchCocktails);
-
+  resetButton.addEventListener('click', handleClickReset);
   // Sets the disable or enable state for the search button
   setSearchButtonState();
 }
