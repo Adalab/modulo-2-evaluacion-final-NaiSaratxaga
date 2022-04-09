@@ -64,5 +64,4 @@ Arrancar el proyecto con el comando:
 
 npm start
 
-Autora: Naiara Saratxaga 
-
+Autora: Naiara Saratxaga
