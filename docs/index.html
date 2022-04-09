@@ -5,30 +5,63 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Final evaluation Js</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <title> Cocktail Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="icon" href="./assets/images/favicon-16x16.png" />
+  <script src="https://kit.fontawesome.com/c93461eabd.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <!-- partials header -->
+  <header>
+      <h1 class="title">🍸 Buscador de Cócteles 🍸</h1>
+  </header>
+  <!-- partials main -->
   <main>
-    <h1 class="title">Buscador de Cócteles</h1>
-    <form>
-      <input type="text" class="input js_input" />
-      <button type="button" class="button js_buttonSearch">Buscar</button>
-      <button type="button" class="button js_buttonReset">Reset</button>
-    </form>
+      <!--  Search cocktails section -->
+      <form>
+          <input type="text" name="text" id="id" class="input js_searchInput" placeholder="Search: Margarita" />
+          <button type="submit" value="search" name="button" class="button js_searchButton">Buscar</button>
+          <button type="button" value="reset" name="button" class="button js_resetButton">Reset</button>
+      </form>
+      <!--  favourite cocktails section -->
+      <section class="main__cocktails-container">
+          <div class="container__fav">
+              <section class="section__fav">
+                  <h2 class="subtitle">Cócteles Favoritos</h2>
+                  <ul class="js_cocktailsFavList">
+                      <li></li>
+                  </ul>
+              </section>
+          </div>
+          <div class="container__list">
+              <!--  List result cocktails section -->
+              <section class="section__result">
+                  <h2 class="subtitle">Listado Cócteles</h2>
+                  <ul class="js_cocktailsSearchResultList">
+                  </ul>
+              </section>
 
-    <section>
-      <h2>Cócteles Favoritos</h2>
-    </section>
-    <section>
-
-      <ul class="js_list"></ul>
-    </section>
-    </div>
+          </div>
+      </section>
   </main>
-  <script type="text/javascript" src="./assets/js/main.js"></script>
+  <!-- partials footer-->
+
+  <footer class="footer">
+      <div class="footer__contact">
+          <small class="footer__small">Design by Naiara Saratxaga</small>
+          <a href="https://github.com/NaiSaratxaga" target="_blank">
+              <i class="fa-brands fa-github footer__contact--github"></i></a>
+          <a href="https://www.linkedin.com/in/naiara-saratxaga-17abb030/" target="_blank"><i
+                  class="fa-brands fa-linkedin-in footer__contact--linkedin"></i></a>
+          <a href="https://twitter.com/naiarasaratxaga" target="_blank"><i
+                  class="fa-brands fa-twitter footer__contact--twitter"></i></a>
+      </div>
+  </footer>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
