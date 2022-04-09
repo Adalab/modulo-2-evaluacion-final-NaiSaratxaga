@@ -1,11 +1,14 @@
 'use strict';
 
 // Select from HTML
-const cocktailsList = document.querySelector('.js_listResults');
-const searchInput = document.querySelector('.js_input');
-const searchButton = document.querySelector('.js_buttonSearch');
-const resetButton = document.querySelector('.js_buttonReset');
-const cocktailsFavList = document.querySelector('.js_listFav');
+const searchInput = document.querySelector('.js_searchInput');
+const searchButton = document.querySelector('.js_searchButton');
+const resetButton = document.querySelector('.js_resetButton');
+
+const cocktailsSearchResultList = document.querySelector(
+  '.js_cocktailsSearchResultList'
+);
+const cocktailsFavList = document.querySelector('.js_cocktailsFavList');
 
 const imageFallback =
   'https://via.placeholder.com/150/ffffff/666666/?text=no-image';
@@ -25,36 +28,16 @@ function getCocktails() {
       renderCocktails(cocktails);
     });
 }
-// Favourites
-function isAlreadyInFavs(cocktailId) {
-  return favCocktails.find((cocktail) => cocktail.idDrink === cocktailId);
-}
-
-function cocktailSelected(cocktailElementListItem) {
-  const selectedCocktailId = cocktailElementListItem.id;
-
-  if (isAlreadyInFavs(selectedCocktailId)) {
-    return;
-  }
-
-  cocktailElementListItem.classList.add('fav-cocktail');
-  const selectedCocktail = cocktails.find(
-    (cocktail) => cocktail.idDrink === selectedCocktailId
-  );
-  favCocktails.push(selectedCocktail);
-
-  renderFavouriteCocktails(favCocktails);
-}
 
 function cleanCocktailsResults() {
-  cocktailsList.innerHTML = '';
+  cocktailsSearchResultList.innerHTML = '';
 }
 
 function renderCocktails(cocktails) {
   cleanCocktailsResults();
   if (!cocktails) {
     const cocktailTitleToSearch = searchInput.value;
-    cocktailsList.innerHTML = `<li class="no-cocktails">There are no cocktails for the search: ${cocktailTitleToSearch}</li>`;
+    cocktailsSearchResultList.innerHTML = `<li class="no-cocktails">There are no cocktails for the search: ${cocktailTitleToSearch}</li>`;
     return;
   }
 
@@ -62,19 +45,43 @@ function renderCocktails(cocktails) {
     const imageSrc = cocktail.strDrinkThumb || imageFallback;
     const favClass = isAlreadyInFavs(cocktail.idDrink) ? 'fav-cocktail' : '';
 
-    cocktailsList.innerHTML += `
-      <li class="cocktail ${favClass}" onClick="cocktailSelected(this)" id=${cocktail.idDrink}>
-        <h2 class="drink-name text">
-          ${cocktail.strDrink}
-        </h2>
-        <img src=${imageSrc} class="img" alt="cocktail">
-      </li>`;
+    cocktailsSearchResultList.innerHTML += `
+    <li class="cocktail ${favClass}" onClick="addToFav(this)" id=${cocktail.idDrink}>
+    <h2 class="drink-name text">
+    ${cocktail.strDrink}
+    </h2>
+    <img src=${imageSrc} class="img" alt="cocktail">
+    </li>`;
   }
+}
+
+// Favourites
+function isAlreadyInFavs(cocktailId) {
+  return favCocktails.find((cocktail) => cocktail.idDrink === cocktailId);
 }
 
 function unmarkAsFavoruite(cocktailId) {
   const cocktailElement = document.getElementById(cocktailId);
-  cocktailElement.classList.remove('fav-cocktail');
+  if (cocktailElement) {
+    cocktailElement.classList.remove('fav-cocktail');
+  }
+}
+
+function addToFav(cocktailElementToAdd) {
+  const selectedCocktailId = cocktailElementToAdd.id;
+
+  if (isAlreadyInFavs(selectedCocktailId)) {
+    return;
+  }
+
+  cocktailElementToAdd.classList.add('fav-cocktail');
+  const selectedCocktail = cocktails.find(
+    (cocktail) => cocktail.idDrink === selectedCocktailId
+  );
+  favCocktails.push(selectedCocktail);
+
+  renderFavouriteCocktails(favCocktails);
+  saveFavsToLocalStorage();
 }
 
 function removeFromFav(cocktailFavElementToRemove) {
@@ -86,11 +93,21 @@ function removeFromFav(cocktailFavElementToRemove) {
 
   renderFavouriteCocktails(favCocktails);
   unmarkAsFavoruite(cocktailIdToRemoveFromFav);
+  saveFavsToLocalStorage();
+}
+
+function loadFavsFromLocalStorage() {
+  favCocktails = JSON.parse(localStorage.getItem('favouriteCocktails')) || [];
+  renderFavouriteCocktails(favCocktails);
+}
+
+function saveFavsToLocalStorage() {
+  localStorage.setItem('favouriteCocktails', JSON.stringify(favCocktails));
 }
 
 function renderFavouriteCocktails(favouriteCocktails) {
   cocktailsFavList.innerHTML = '';
-  if (!favouriteCocktails) {
+  if (!favouriteCocktails.length) {
     cocktailsFavList.innerHTML = `<li class="no-favs">There are no fav cocktails </li>`;
   }
 
@@ -109,14 +126,16 @@ function renderFavouriteCocktails(favouriteCocktails) {
   }
 }
 
+// Reset
 function handleClickReset() {
-  cocktails: [];
-  cleanCocktailsResults('');
+  cocktails = [];
+  cleanCocktailsResults();
   searchInput.value = '';
+
   setSearchButtonState();
 }
 
-// Callback functions
+// Search
 // Reevaluates if the search button is disabled or not
 // based on if there is text to search by
 function setSearchButtonState() {
@@ -135,8 +154,12 @@ function init() {
   searchInput.addEventListener('keyup', setSearchButtonState);
   searchButton.addEventListener('click', searchCocktails);
   resetButton.addEventListener('click', handleClickReset);
+
   // Sets the disable or enable state for the search button
   setSearchButtonState();
+
+  // Loads the already saved favourites
+  loadFavsFromLocalStorage();
 }
 
 // setup the page
