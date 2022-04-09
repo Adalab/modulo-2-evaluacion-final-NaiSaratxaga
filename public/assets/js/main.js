@@ -46,7 +46,7 @@ function renderCocktails(cocktails) {
     const favClass = isAlreadyInFavs(cocktail.idDrink) ? 'fav-cocktail' : '';
 
     cocktailsSearchResultList.innerHTML += `
-    <li class="main--cocktail-card ${favClass}" onClick="addToFav(this)" id=${cocktail.idDrink}>
+    <li class=" ${favClass}" onClick="addToFav(this)" id=${cocktail.idDrink}>
         <h2 class="drink-name">
           ${cocktail.strDrink}
         </h2>
@@ -84,8 +84,8 @@ function addToFav(cocktailElementToAdd) {
   saveFavsToLocalStorage();
 }
 
-function removeFromFav(cocktailFavElementToRemove) {
-  const cocktailIdToRemoveFromFav = cocktailFavElementToRemove.id;
+function removeFromFav(cocktailIdToRemoveFromFav) {
+  //const cocktailIdToRemoveFromFav = cocktailFavElementToRemove.id;
 
   favCocktails = favCocktails.filter(
     (cocktail) => cocktail.idDrink !== cocktailIdToRemoveFromFav
@@ -117,10 +117,11 @@ function renderFavouriteCocktails(favouriteCocktails) {
       : imageFallback;
 
     cocktailsFavList.innerHTML += `
-      <li class="cocktail" onClick="removeFromFav(this)" id=${favouriteCocktail.idDrink}>
-        <h2 class="drink-name text">
+      <li class="cocktail" id=${favouriteCocktail.idDrink}>
+        <h2 class="drink-name">
           ${favouriteCocktail.strDrink}
         </h2>
+        <h3 class="main--remove-fav" onClick="removeFromFav('${favouriteCocktail.idDrink}')"> 💔 Eliminar</h3>
         <img src=${imageSrc} class="img" alt="cocktail">
       </li>`;
   }
