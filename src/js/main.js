@@ -46,11 +46,11 @@ function renderCocktails(cocktails) {
     const favClass = isAlreadyInFavs(cocktail.idDrink) ? 'fav-cocktail' : '';
 
     cocktailsSearchResultList.innerHTML += `
-    <li class="cocktail ${favClass}" onClick="addToFav(this)" id=${cocktail.idDrink}>
-    <h2 class="drink-name text">
-    ${cocktail.strDrink}
-    </h2>
-    <img src=${imageSrc} class="img" alt="cocktail">
+    <li class="main--cocktail-card ${favClass}" onClick="addToFav(this)" id=${cocktail.idDrink}>
+        <h2 class="drink-name">
+          ${cocktail.strDrink}
+        </h2>
+        <img src=${imageSrc} class="img" alt="cocktail">
     </li>`;
   }
 }
@@ -108,7 +108,7 @@ function saveFavsToLocalStorage() {
 function renderFavouriteCocktails(favouriteCocktails) {
   cocktailsFavList.innerHTML = '';
   if (!favouriteCocktails.length) {
-    cocktailsFavList.innerHTML = `<li class="no-favs">There are no fav cocktails </li>`;
+    cocktailsFavList.innerHTML = `<li class="no-fav">There are no fav cocktails </li>`;
   }
 
   for (const favouriteCocktail of favouriteCocktails) {

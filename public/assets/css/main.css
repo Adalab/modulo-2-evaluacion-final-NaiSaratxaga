@@ -7,8 +7,17 @@
 
 .main__cocktails-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px 50px; }
+
+img {
+  margin: 10px; }
+
+.fav-cocktail .drink-name {
+  color: #f02372; }
+
+.fav-cocktail img {
+  outline: solid 10px #f02372; }
 
 .input {
   font-family: 'Roboto', sans-serif;
@@ -39,23 +48,27 @@
   height: 150px;
   margin-bottom: 20px; }
 
-.text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  color: #747171; }
-
 .no-cocktails {
-  color: red; }
-
-.fav-cocktail {
-  background-color: yellow; }
+  color: red;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px; }
 
 .subtitle {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
   font-weight: 900;
   color: #4e4b4b; }
+
+.no-fav {
+  color: #ff006a;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px; }
+
+.drink-name {
+  color: #404545;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 500; }
 
 .title {
   font-family: 'Roboto', sans-serif;
@@ -71,9 +84,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 25px; }
+  justify-content: space-around;
+  padding-right: 60px; }
 
 .footer__small {
+  font-family: 'Roboto', sans-serif;
   color: gray;
   font-size: 16px; }
 
