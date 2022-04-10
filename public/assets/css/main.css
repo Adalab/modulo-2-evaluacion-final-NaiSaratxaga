@@ -5,19 +5,42 @@
   list-style-type: none;
   text-decoration: none; }
 
+.main__container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column; }
+
+.main--form {
+  padding-bottom: 30px; }
+
 .main__cocktails-container {
   display: flex;
-  justify-content: space-around;
-  padding: 10px 50px; }
+  justify-content: space-between;
+  padding: 10px 0px; }
+
+.main__container-fav {
+  width: 300px; }
+
+.main__container-list {
+  width: 300px; }
 
 img {
   margin: 10px; }
+
+.main__add-fav {
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  color: #e44161; }
 
 .fav-cocktail .drink-name {
   color: #f02372; }
 
 .fav-cocktail img {
-  outline: solid 10px #f02372; }
+  outline: solid 5px #f02372; }
+
+.fav-cocktail .main__add-fav {
+  display: none; }
 
 .input {
   font-family: 'Roboto', sans-serif;
@@ -25,7 +48,6 @@ img {
   color: black;
   font-size: 18px;
   padding: 10px;
-  margin: 40px;
   border: 2px solid #eee;
   border-radius: 10px; }
 
@@ -60,7 +82,7 @@ img {
   color: #4e4b4b; }
 
 .no-fav {
-  color: #ff006a;
+  color: #838282;
   font-family: 'Roboto', sans-serif;
   font-size: 16px; }
 
@@ -70,17 +92,19 @@ img {
   font-size: 20px;
   font-weight: 500; }
 
-.main--remove-fav {
+.main__remove-fav {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
   color: #e44161; }
 
 .title {
+  width: 80%;
   font-family: 'Roboto', sans-serif;
   font-size: 60px;
   font-weight: 500;
   color: #4e4b4b;
-  margin: 20px; }
+  margin: auto;
+  padding-bottom: 40px; }
 
 .footer {
   font-size: 14px;
@@ -96,6 +120,9 @@ img {
   font-family: 'Roboto', sans-serif;
   color: gray;
   font-size: 16px; }
+
+.footer__contact a {
+  padding-left: 10px; }
 
 .footer__contact--github {
   font-size: 25px;
