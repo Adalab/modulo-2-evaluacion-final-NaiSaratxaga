@@ -20,16 +20,16 @@
       <h1 class="title">🍸 Buscador de Cócteles 🍸</h1>
   </header>
   <!-- partials main -->
-  <main>
+  <main class="main__container">
       <!--  Search cocktails section -->
-      <form>
+      <form class="main--form">
           <input type="text" name="text" id="id" class="input js_searchInput" placeholder="Search: Margarita" />
           <button type="submit" value="search" name="button" class="button js_searchButton">Buscar</button>
           <button type="button" value="reset" name="button" class="button js_resetButton">Reset</button>
       </form>
       <!--  favourite cocktails section -->
       <section class="main__cocktails-container">
-          <div class="container__fav">
+          <div class="main__container-fav">
               <section class="section__fav">
                   <h2 class="subtitle">Cócteles Favoritos</h2>
                   <ul class="js_cocktailsFavList">
@@ -37,7 +37,7 @@
                   </ul>
               </section>
           </div>
-          <div class="container__list">
+          <div class="main__container-list">
               <!--  List result cocktails section -->
               <section class="section__result">
                   <h2 class="subtitle">Listado Cócteles</h2>
