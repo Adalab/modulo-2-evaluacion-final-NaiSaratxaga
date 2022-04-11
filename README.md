@@ -1,6 +1,6 @@
 # Hola 👋🏽, soy Naiara
 
-Y este es mi ejercicio de evaluación final de JavaScript.
+**Y este es mi ejercicio de evaluación final de JavaScript**
 A continuación os explico un poco en que consiste.
 
 - El ejercicio consiste en desarrollar una aplicación web que contiene un listado de las bebidas y cóteles de todo el mundo, que nos permite des/marcar las bebidas como favoritas y guardarlas en local storage.
@@ -46,26 +46,34 @@ http://beta.adalab.es/modulo-2-evaluacion-final-NaiSaratxaga/
 
 # Este proyecto ha sido desarrollado con:
 
-![JavaScript icon](/assets/images/js.ico)
-![HTML5 icon](/assets/images/html5.png)
-![Sass icon](/assets/images/sass.png)
-JavaScript Html5 sass
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> </p>
 
 También se ha utilizado el Starter Kit de Aadalab, el cual incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local.
 
 \*\*\*Guía para arrancar el proyecto
 
-> NOTA: Para trabajar con el Starter Kit necesitas tener instalado Node JS :
+> **NOTA:** Necesitas tener instalado [Node JS](https://nodejs.org/) para trabajar con este Starter Kit.
 
-> Clonar este repositorio
->
-> Abrir una terminal en la carpeta raíz del repositorio.
->
-> Instalar las dependencias locales ejecutando en la terminal el comando:
->
-> npm install
-> Arrancar el proyecto con el comando:
->
-> npm start
+\*Pasos a seguir :
+
+1. **Clonar este repositorio**
+2. **Abrir una terminal en la carpeta raíz del repositorio**
+3. \*\*Instalar las dependencias locales ejecutando en la terminal el comando:
+
+```bash
+npm install
+```
+
+**Arrancar el proyecto con el comando**
+
+```bash
+npm start
+```
+
+**Para generar la página**
+
+```bash
+npm run docs
+```
 
 Autora: <nsaratxaga@gmail.com>
