@@ -46,22 +46,26 @@ http://beta.adalab.es/modulo-2-evaluacion-final-NaiSaratxaga/
 
 # Este proyecto ha sido desarrollado con:
 
-javascript html5 sass
+![JavaScript icon](/assets/images/js.ico)
+![HTML5 icon](/assets/images/html5.png)
+![Sass icon](/assets/images/sass.png)
+JavaScript Html5 sass
 
-Además, para su realización, se ha utilizado el Starter Kit de Aadalab, el cual incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local.
+También se ha utilizado el Starter Kit de Aadalab, el cual incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local.
 
-Guía para arrancar el proyecto
-NOTA: Para trabajar con el Starter Kit necesitas tener instalado Node JS :
+\*\*\*Guía para arrancar el proyecto
 
-Clonar este repositorio
+> NOTA: Para trabajar con el Starter Kit necesitas tener instalado Node JS :
 
-Abrir una terminal en la carpeta raíz del repositorio.
+> Clonar este repositorio
+>
+> Abrir una terminal en la carpeta raíz del repositorio.
+>
+> Instalar las dependencias locales ejecutando en la terminal el comando:
+>
+> npm install
+> Arrancar el proyecto con el comando:
+>
+> npm start
 
-Instalar las dependencias locales ejecutando en la terminal el comando:
-
-npm install
-Arrancar el proyecto con el comando:
-
-npm start
-
-Autora: Naiara Saratxaga
+Autora: <nsaratxaga@gmail.com>
