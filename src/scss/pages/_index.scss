@@ -30,15 +30,15 @@ img {
 .main__add-fav {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  color: rgb(228, 65, 97);
+  color: #ff0b45;
 }
 
 .fav-cocktail {
   .drink-name {
-    color: #f02372;
+    color: #ff0b45;
   }
   img {
-    outline: solid 5px #f02372;
+    outline: solid 5px #ff0b45;
   }
 
   .main__add-fav {
@@ -57,7 +57,7 @@ img {
 }
 
 .button {
-  background-color: #f02372;
+  background-color: #ff0b45;
   border: none;
   color: white;
   padding: 10px 32px;
@@ -107,5 +107,5 @@ img {
 .main__remove-fav {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  color: rgb(228, 65, 97);
+  color: #ff0b45;
 }

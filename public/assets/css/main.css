@@ -31,13 +31,13 @@ img {
 .main__add-fav {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  color: #e44161; }
+  color: #ff0b45; }
 
 .fav-cocktail .drink-name {
-  color: #f02372; }
+  color: #ff0b45; }
 
 .fav-cocktail img {
-  outline: solid 5px #f02372; }
+  outline: solid 5px #ff0b45; }
 
 .fav-cocktail .main__add-fav {
   display: none; }
@@ -52,7 +52,7 @@ img {
   border-radius: 10px; }
 
 .button {
-  background-color: #f02372;
+  background-color: #ff0b45;
   border: none;
   color: white;
   padding: 10px 32px;
@@ -95,16 +95,37 @@ img {
 .main__remove-fav {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  color: #e44161; }
+  color: #ff0b45; }
 
 .title {
   width: 80%;
   font-family: 'Roboto', sans-serif;
-  font-size: 60px;
-  font-weight: 500;
-  color: #4e4b4b;
+  font-size: 100px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #383636;
   margin: auto;
-  padding-bottom: 40px; }
+  padding-bottom: 10px;
+  padding-top: 40px; }
+
+.sub_title {
+  width: 80%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #383636;
+  margin: auto;
+  padding-bottom: 10px; }
+
+.text__head {
+  font-family: 'Roboto', sans-serif;
+  width: 80%;
+  color: #383636;
+  font-size: 20px;
+  font-weight: 600;
+  margin: auto;
+  padding-bottom: 20px; }
 
 .footer {
   font-size: 14px;
